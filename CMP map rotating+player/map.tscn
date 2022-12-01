@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://StaticBody2D.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Node2D.gd" type="Script" id=2]
+[ext_resource path="res://ball.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ball.gd" type="Script" id=4]
+
+[node name="World" type="Node2D"]
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2( 525, 290 )
+scale = Vector2( 1, 1.01057 )
+script = ExtResource( 2 )
+
+[node name="StaticBody2D" parent="Node2D" instance=ExtResource( 1 )]
+position = Vector2( -267, 0 )
+scale = Vector2( 4.45804, 11.8452 )
+
+[node name="StaticBody2D2" parent="Node2D" instance=ExtResource( 1 )]
+position = Vector2( 265, 0 )
+scale = Vector2( 4.45804, 11.8452 )
+
+[node name="StaticBody2D3" parent="Node2D" instance=ExtResource( 1 )]
+position = Vector2( -1, -223 )
+rotation = 1.57156
+scale = Vector2( 4.42294, 14.4202 )
+
+[node name="StaticBody2D4" parent="Node2D" instance=ExtResource( 1 )]
+position = Vector2( -1, 224 )
+rotation = 1.57156
+scale = Vector2( 4.42294, 14.4202 )
+
+[node name="StaticBody2D5" parent="Node2D" instance=ExtResource( 1 )]
+position = Vector2( 171.79, 117.641 )
+rotation = 1.57156
+scale = Vector2( 17.8557, -4.25435 )
+
+[node name="ball" parent="Node2D" instance=ExtResource( 3 )]
+position = Vector2( -86, 40.5712 )
+scale = Vector2( 1.01246, 0.989541 )
+script = ExtResource( 4 )
