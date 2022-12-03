@@ -1,25 +1,90 @@
-[gd_scene format=2]
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://asset/DNFBitBitTTF.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://asset/HBIOS-SYS-prop.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://asset/background1.jpg" type="Texture" id=3]
+[ext_resource path="res://asset/button60.png" type="Texture" id=4]
+[ext_resource path="res://clear.gd" type="Script" id=5]
+[ext_resource path="res://asset/button40.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 128
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 40
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 64
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
 
 [node name="clear" type="Node2D"]
+script = ExtResource( 5 )
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-color = Color( 0.745098, 0.670588, 0.188235, 1 )
-polygon = PoolVector2Array( -3, -3, 0, 601, 1024, 602, 1024, -1 )
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 512, 300 )
+scale = Vector2( 1.90596, 1.86025 )
+texture = ExtResource( 3 )
 
-[node name="Label" type="Label" parent="."]
-modulate = Color( 0.0313726, 0.560784, 0.278431, 1 )
-margin_left = 322.0
-margin_top = 189.0
-margin_right = 362.0
-margin_bottom = 203.0
-rect_scale = Vector2( 9.47625, 8.81974 )
-text = "clear!!"
+[node name="clear" type="Label" parent="."]
+margin_left = 2.0
+margin_top = 167.0
+margin_right = 1024.0
+margin_bottom = 306.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "CLEAR!"
+align = 1
 
-[node name="Label2" type="Label" parent="."]
-modulate = Color( 0.556863, 0.0980392, 0.686275, 1 )
-margin_left = 253.0
-margin_top = 313.0
-margin_right = 345.0
-margin_bottom = 327.0
-rect_scale = Vector2( 5.62401, 6.34462 )
+[node name="sweetness" type="Label" parent="."]
+margin_left = 2.0
+margin_top = 128.0
+margin_right = 1026.0
+margin_bottom = 168.0
+custom_colors/font_color = Color( 0.803922, 0, 1, 1 )
+custom_fonts/font = SubResource( 2 )
 text = "sweetness + 1"
+align = 1
+
+[node name="Next" type="Node2D" parent="."]
+position = Vector2( 810, 510 )
+
+[node name="NextButton" type="TextureButton" parent="Next"]
+margin_right = 192.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
+
+[node name="quit" type="Label" parent="Next"]
+margin_left = 1.0
+margin_top = 17.0
+margin_right = 192.0
+margin_bottom = 37.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "NEXT"
+align = 1
+
+[node name="record" type="Label" parent="."]
+margin_left = 4.0
+margin_top = 318.0
+margin_right = 1027.0
+margin_bottom = 358.0
+custom_colors/font_color = Color( 1, 0.701961, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "03:48:99"
+align = 1
+
+[connection signal="pressed" from="Next/NextButton" to="." method="_on_NextButton_pressed"]

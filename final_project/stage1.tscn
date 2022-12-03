@@ -3,7 +3,7 @@
 [ext_resource path="res://player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://stage1.gd" type="Script" id=2]
 [ext_resource path="res://thorn.gd" type="Script" id=3]
-[ext_resource path="res://candy.png" type="Texture" id=4]
+[ext_resource path="res://asset/candy.png" type="Texture" id=4]
 [ext_resource path="res://sugar.gd" type="Script" id=5]
 [ext_resource path="res://background/background1.jpg" type="Texture" id=6]
 

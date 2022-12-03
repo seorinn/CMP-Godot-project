@@ -1,0 +1,200 @@
+[gd_scene load_steps=18 format=2]
+
+[ext_resource path="res://asset/DNFBitBitTTF.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://asset/HBIOS-SYS-prop.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://asset/background1.jpg" type="Texture" id=3]
+[ext_resource path="res://asset/button60.png" type="Texture" id=4]
+[ext_resource path="res://asset/button40.png" type="Texture" id=5]
+[ext_resource path="res://asset/bean2.png" type="Texture" id=6]
+[ext_resource path="res://asset/bean5.png" type="Texture" id=7]
+[ext_resource path="res://asset/bean4.png" type="Texture" id=8]
+[ext_resource path="res://asset/bean3.png" type="Texture" id=9]
+[ext_resource path="res://asset/square.png" type="Texture" id=10]
+[ext_resource path="res://Stages.gd" type="Script" id=11]
+[ext_resource path="res://asset/square_hover.png" type="Texture" id=12]
+[ext_resource path="res://asset/bean1.png" type="Texture" id=13]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+outline_size = 2
+outline_color = Color( 0.470588, 0.470588, 0.470588, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 64
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 64
+outline_size = 3
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 2 )
+
+[node name="Stages" type="Node2D"]
+script = ExtResource( 11 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 512, 300 )
+scale = Vector2( 1.90596, 1.86025 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = -3.0
+margin_top = 304.0
+margin_right = 1019.0
+margin_bottom = 356.0
+custom_fonts/font = SubResource( 1 )
+text = ".   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .   .  "
+align = 1
+
+[node name="selectStage" type="Label" parent="."]
+margin_top = 94.0
+margin_right = 1022.0
+margin_bottom = 168.0
+custom_fonts/font = SubResource( 2 )
+text = "Select Stage"
+align = 1
+
+[node name="Stage1" type="Node2D" parent="."]
+position = Vector2( 94, 256 )
+
+[node name="Sprite" type="Sprite" parent="Stage1"]
+position = Vector2( 64, 64 )
+texture = ExtResource( 7 )
+
+[node name="TextureButton" type="TextureButton" parent="Stage1"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 10 )
+texture_hover = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="Stage1"]
+margin_left = -1.0
+margin_top = -34.0
+margin_right = 39.0
+margin_bottom = 36.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "1"
+align = 1
+
+[node name="Stage2" type="Node2D" parent="."]
+position = Vector2( 271, 256 )
+
+[node name="Sprite" type="Sprite" parent="Stage2"]
+position = Vector2( 64, 64 )
+texture = ExtResource( 8 )
+
+[node name="TextureButton" type="TextureButton" parent="Stage2"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 10 )
+texture_hover = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="Stage2"]
+margin_left = -1.0
+margin_top = -34.0
+margin_right = 39.0
+margin_bottom = 36.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "2"
+align = 1
+
+[node name="Stage3" type="Node2D" parent="."]
+position = Vector2( 448, 256 )
+
+[node name="Sprite" type="Sprite" parent="Stage3"]
+position = Vector2( 64, 64 )
+texture = ExtResource( 9 )
+
+[node name="TextureButton" type="TextureButton" parent="Stage3"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 10 )
+texture_hover = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="Stage3"]
+margin_left = -1.0
+margin_top = -34.0
+margin_right = 39.0
+margin_bottom = 36.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "3"
+align = 1
+
+[node name="Stage4" type="Node2D" parent="."]
+position = Vector2( 625, 256 )
+
+[node name="Sprite" type="Sprite" parent="Stage4"]
+position = Vector2( 64, 64 )
+texture = ExtResource( 6 )
+
+[node name="TextureButton" type="TextureButton" parent="Stage4"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 10 )
+texture_hover = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="Stage4"]
+margin_left = -1.0
+margin_top = -34.0
+margin_right = 39.0
+margin_bottom = 36.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "4"
+align = 1
+
+[node name="Stage5" type="Node2D" parent="."]
+position = Vector2( 802, 256 )
+
+[node name="Sprite" type="Sprite" parent="Stage5"]
+position = Vector2( 64, 64 )
+texture = ExtResource( 13 )
+
+[node name="TextureButton" type="TextureButton" parent="Stage5"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 10 )
+texture_hover = ExtResource( 12 )
+
+[node name="Label" type="Label" parent="Stage5"]
+margin_left = -1.0
+margin_top = -34.0
+margin_right = 39.0
+margin_bottom = 36.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "5"
+align = 1
+
+[node name="Quit" type="Node2D" parent="."]
+position = Vector2( 810, 510 )
+
+[node name="QuitButton" type="TextureButton" parent="Quit"]
+margin_right = 192.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
+
+[node name="quit" type="Label" parent="Quit"]
+margin_left = 1.0
+margin_top = 17.0
+margin_right = 192.0
+margin_bottom = 37.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "QUIT"
+align = 1
+
+[connection signal="pressed" from="Stage1/TextureButton" to="." method="_on_Stage1Button_pressed"]
+[connection signal="pressed" from="Quit/QuitButton" to="." method="_on_QuitButton_pressed"]
