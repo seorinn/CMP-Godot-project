@@ -1,0 +1,10 @@
+[gd_scene format=2]
+
+[node name="Area2D" type="Area2D"]
+
+[node name="Sprite" type="Polygon2D" parent="."]
+color = Color( 0.909804, 0.572549, 0.572549, 1 )
+polygon = PoolVector2Array( -1, -60, -30, -3, 0, 52, 28, 3 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PoolVector2Array( 0, -60, -29, -3, -2, 50, 27, 1 )

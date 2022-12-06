@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 28, 96 )
+
+[node name="StaticBody2D" type="StaticBody2D"]
+
+[node name="Sprite" type="Polygon2D" parent="."]
+position = Vector2( 0, 40 )
+color = Color( 0.0627451, 0.94902, 0.513726, 1 )
+polygon = PoolVector2Array( -32, -128, -32, 64, 24, 64, 24, -128 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -4, 8 )
+shape = SubResource( 1 )
