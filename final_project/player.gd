@@ -15,11 +15,11 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_left"):
 		velocity.x = -speed
 	
-	#if !stage1.isRotate:
-		#velocity.y += gravity
+	if !Stage1.isRotate:
+		velocity.y += gravity
 	
 	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y += jump
 		
-	velocity.y += gravity
+#	velocity.y += gravity
 	velocity = move_and_slide(velocity, Vector2.UP)
