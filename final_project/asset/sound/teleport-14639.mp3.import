@@ -11,5 +11,5 @@ dest_files=[ "res://.import/teleport-14639.mp3-596c4cefb888b82ba3d9020169360ec6.
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

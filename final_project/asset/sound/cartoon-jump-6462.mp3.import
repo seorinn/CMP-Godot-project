@@ -11,5 +11,5 @@ dest_files=[ "res://.import/cartoon-jump-6462.mp3-ddc3440871531a478203404e813c19
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

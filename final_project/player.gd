@@ -15,11 +15,13 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_left"):
 		velocity.x = -speed
 	
-	if !get_parent().isRotate:
+	if !Stage1.isRotate:
 		velocity.y += gravity
 	
 	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y += jump
+		if(GameData.effectSound == 1):
+			JumpSound.play()
 		
 #	velocity.y += gravity
 	velocity = move_and_slide(velocity, Vector2.UP)

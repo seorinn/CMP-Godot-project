@@ -1,5 +1,9 @@
 extends Node2D
 
+func _ready():
+	GameData.clear = -1
+	if(GameData.musicPlaying == 1):
+		ClearSound.play()
 
 func _on_sugar_body_entered(body):
 	visible = true
