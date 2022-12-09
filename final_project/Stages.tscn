@@ -203,4 +203,8 @@ align = 1
 [node name="gameMusic" parent="." instance=ExtResource( 15 )]
 
 [connection signal="pressed" from="Stage1/TextureButton" to="." method="_on_Stage1Button_pressed"]
+[connection signal="pressed" from="Stage2/TextureButton" to="." method="_on_Stage2Button_pressed"]
+[connection signal="pressed" from="Stage3/TextureButton" to="." method="_on_Stage3Button_pressed"]
+[connection signal="pressed" from="Stage4/TextureButton" to="." method="_on_Stage4Button_pressed"]
+[connection signal="pressed" from="Stage5/TextureButton" to="." method="_on_Stage5Button_pressed"]
 [connection signal="pressed" from="Quit/QuitButton" to="." method="_on_QuitButton_pressed"]
