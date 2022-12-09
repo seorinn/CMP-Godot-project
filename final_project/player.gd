@@ -15,7 +15,10 @@ func _physics_process(delta):
 	if Input.is_action_pressed("ui_left"):
 		velocity.x = -speed
 	
-	if !Stage1.isRotate:
+	#if !Stage1.isRotate:
+		#velocity.y += gravity
+		
+	if !get_parent().isRotate:
 		velocity.y += gravity
 	
 	if Input.is_action_pressed("jump") and is_on_floor():
