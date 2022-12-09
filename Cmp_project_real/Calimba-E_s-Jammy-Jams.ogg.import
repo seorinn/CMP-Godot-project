@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Calimba-E_s-Jammy-Jams.ogg-49cd5339a211f8be4adf216034e98fc5.oggstr"
+
+[deps]
+
+source_file="res://Calimba-E_s-Jammy-Jams.ogg"
+dest_files=[ "res://.import/Calimba-E_s-Jammy-Jams.ogg-49cd5339a211f8be4adf216034e98fc5.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0
