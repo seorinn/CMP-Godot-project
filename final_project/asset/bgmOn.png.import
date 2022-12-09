@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/candy.png-9137d1c57fffe03f74ce4ac6f77bf1a3.stex"
+path="res://.import/bgmOn.png-54e5a0e73d627270db6c686c48537bd8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://candy.png"
-dest_files=[ "res://.import/candy.png-9137d1c57fffe03f74ce4ac6f77bf1a3.stex" ]
+source_file="res://asset/bgmOn.png"
+dest_files=[ "res://.import/bgmOn.png-54e5a0e73d627270db6c686c48537bd8.stex" ]
 
 [params]
 

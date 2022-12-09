@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/8bit-music-for-game-68698.mp3-d5b153fcd59bfed44df67b30817b4e52.mp3str"
+
+[deps]
+
+source_file="res://asset/sound/8bit-music-for-game-68698.mp3"
+dest_files=[ "res://.import/8bit-music-for-game-68698.mp3-d5b153fcd59bfed44df67b30817b4e52.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

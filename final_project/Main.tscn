@@ -1,12 +1,16 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://asset/DNFBitBitTTF.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://asset/candy.png" type="Texture" id=2]
+[ext_resource path="res://asset/effectSoundOn.png" type="Texture" id=2]
+[ext_resource path="res://bgMusic.tscn" type="PackedScene" id=3]
+[ext_resource path="res://asset/effectSoundOff.png" type="Texture" id=4]
 [ext_resource path="res://asset/button40.png" type="Texture" id=5]
 [ext_resource path="res://Main.gd" type="Script" id=6]
 [ext_resource path="res://asset/background1.jpg" type="Texture" id=7]
 [ext_resource path="res://asset/HBIOS-SYS-prop.ttf" type="DynamicFontData" id=8]
 [ext_resource path="res://asset/button60.png" type="Texture" id=9]
+[ext_resource path="res://asset/bgmOn.png" type="Texture" id=10]
+[ext_resource path="res://asset/bgmOff.png" type="Texture" id=11]
 
 [sub_resource type="DynamicFont" id=4]
 size = 64
@@ -108,24 +112,37 @@ align = 1
 [node name="Node2D" type="Node2D" parent="Sound"]
 position = Vector2( 900, 550 )
 
-[node name="Sprite" type="Sprite" parent="Sound/Node2D"]
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 2 )
+[node name="bgmButton" type="TextureButton" parent="Sound/Node2D"]
+margin_left = -34.0
+margin_top = -32.0
+margin_right = 30.0
+margin_bottom = 32.0
+toggle_mode = true
+texture_normal = ExtResource( 10 )
 
-[node name="TextureButton" type="TextureButton" parent="Sound/Node2D"]
-margin_left = -26.0
-margin_top = -20.0
-margin_right = 22.0
-margin_bottom = 25.0
+[node name="Sprite" type="Sprite" parent="Sound/Node2D"]
+visible = false
+texture = ExtResource( 11 )
 
 [node name="Node2D2" type="Node2D" parent="Sound"]
-position = Vector2( 980, 550 )
+position = Vector2( 967, 552 )
+
+[node name="effectSoundButton" type="TextureButton" parent="Sound/Node2D2"]
+margin_left = -31.0
+margin_top = -33.0
+margin_right = 33.0
+margin_bottom = 31.0
+toggle_mode = true
+texture_normal = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="Sound/Node2D2"]
-scale = Vector2( 0.2, 0.2 )
-texture = ExtResource( 2 )
+visible = false
+texture = ExtResource( 4 )
+
+[node name="bgMusic" parent="." instance=ExtResource( 3 )]
 
 [connection signal="pressed" from="Credit/CreditButton" to="." method="_on_CreditButton_pressed"]
 [connection signal="pressed" from="Records/RecordsButton" to="." method="_on_RecordsButton_pressed"]
 [connection signal="pressed" from="Play/PlayButton" to="." method="_on_PlayButton_pressed"]
-[connection signal="pressed" from="Sound/Node2D/TextureButton" to="." method="_on_TextureButton_pressed"]
+[connection signal="pressed" from="Sound/Node2D/bgmButton" to="." method="_on_bgmButton_pressed"]
+[connection signal="pressed" from="Sound/Node2D2/effectSoundButton" to="." method="_on_effectSoundButton_pressed"]

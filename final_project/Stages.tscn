@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://asset/DNFBitBitTTF.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://asset/HBIOS-SYS-prop.ttf" type="DynamicFontData" id=2]
@@ -13,6 +13,8 @@
 [ext_resource path="res://Stages.gd" type="Script" id=11]
 [ext_resource path="res://asset/square_hover.png" type="Texture" id=12]
 [ext_resource path="res://asset/bean1.png" type="Texture" id=13]
+[ext_resource path="res://bgMusic.tscn" type="PackedScene" id=14]
+[ext_resource path="res://gameMusic.tscn" type="PackedScene" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -195,6 +197,10 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "QUIT"
 align = 1
+
+[node name="bgMusic" parent="." instance=ExtResource( 14 )]
+
+[node name="gameMusic" parent="." instance=ExtResource( 15 )]
 
 [connection signal="pressed" from="Stage1/TextureButton" to="." method="_on_Stage1Button_pressed"]
 [connection signal="pressed" from="Quit/QuitButton" to="." method="_on_QuitButton_pressed"]

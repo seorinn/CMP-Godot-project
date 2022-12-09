@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/sound-effect-twinklesparkle-115095.mp3-5cb8151045b95363cd0b99a088f9816c.mp3str"
+
+[deps]
+
+source_file="res://asset/sound/sound-effect-twinklesparkle-115095.mp3"
+dest_files=[ "res://.import/sound-effect-twinklesparkle-115095.mp3-5cb8151045b95363cd0b99a088f9816c.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

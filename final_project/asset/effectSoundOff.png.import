@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/candy.png-9137d1c57fffe03f74ce4ac6f77bf1a3.stex"
+path="res://.import/effectSoundOff.png-8cd0701287483623893e08b3d336ec42.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://candy.png"
-dest_files=[ "res://.import/candy.png-9137d1c57fffe03f74ce4ac6f77bf1a3.stex" ]
+source_file="res://asset/effectSoundOff.png"
+dest_files=[ "res://.import/effectSoundOff.png-8cd0701287483623893e08b3d336ec42.stex" ]
 
 [params]
 

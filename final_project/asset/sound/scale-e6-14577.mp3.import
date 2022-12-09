@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/scale-e6-14577.mp3-b268ab75689a56d8fca8ddbf4f81e703.mp3str"
+
+[deps]
+
+source_file="res://asset/sound/scale-e6-14577.mp3"
+dest_files=[ "res://.import/scale-e6-14577.mp3-b268ab75689a56d8fca8ddbf4f81e703.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

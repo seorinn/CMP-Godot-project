@@ -1,9 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://asset/HBIOS-SYS-prop.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://asset/DNFBitBitTTF.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://asset/button60.png" type="Texture" id=3]
 [ext_resource path="res://asset/button40.png" type="Texture" id=4]
+[ext_resource path="res://bgMusic.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Credit.gd" type="Script" id=6]
 [ext_resource path="res://asset/background1.jpg" type="Texture" id=7]
 
@@ -86,5 +87,7 @@ text = "201921070 Hyeonseo Kang
 
 202021149 Jungeun Song"
 align = 1
+
+[node name="bgMusic" parent="." instance=ExtResource( 5 )]
 
 [connection signal="pressed" from="Quit/QuitButton" to="." method="_on_QuitButton_pressed"]
