@@ -1,0 +1,104 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://background/block.png" type="Texture" id=2]
+[ext_resource path="res://thorn1.gd" type="Script" id=3]
+[ext_resource path="res://thorn.tscn" type="PackedScene" id=4]
+[ext_resource path="res://sugar.gd" type="Script" id=5]
+[ext_resource path="res://background/background1.jpg" type="Texture" id=6]
+[ext_resource path="res://asset/candy.png" type="Texture" id=7]
+[ext_resource path="res://stage1.gd" type="Script" id=8]
+
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 64, 0, 64, 64, 0, 64, 0, 0 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "block.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="CircleShape2D" id=3]
+
+[node name="stage1" type="Node2D"]
+position = Vector2( 524, 288 )
+script = ExtResource( 8 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 5.00391, 131.202 )
+scale = Vector2( 6.14899, 7.54163 )
+texture = ExtResource( 6 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -14.9962, 27.2023 )
+scale = Vector2( 2.02279, 2.26392 )
+texture = ExtResource( 6 )
+
+[node name="TileMap" type="TileMap" parent="."]
+modulate = Color( 1, 1, 1, 0.705882 )
+position = Vector2( -558.996, -292.798 )
+tile_set = SubResource( 2 )
+collision_layer = 2
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 65536, 0, 0, 65552, 0, 0, 131072, 0, 0, 131088, 0, 0, 196608, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196624, 0, 0, 262144, 0, 0, 262153, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262160, 0, 0, 327680, 0, 0, 327689, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327696, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393225, 0, 0, 393232, 0, 0, 458752, 0, 0, 458761, 0, 0, 458768, 0, 0, 524288, 0, 0, 524297, 0, 0, 524304, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0, 589840, 0, 0 )
+
+[node name="player" parent="." instance=ExtResource( 1 )]
+position = Vector2( -372.996, 255.202 )
+
+[node name="Camera2D" type="Camera2D" parent="player"]
+current = true
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+
+[node name="thorn" parent="." instance=ExtResource( 4 )]
+position = Vector2( -407.996, 145.202 )
+scale = Vector2( 1.21479, 0.992044 )
+script = ExtResource( 3 )
+
+[node name="thorn2" parent="." instance=ExtResource( 4 )]
+position = Vector2( -319.996, -98.7977 )
+rotation = -3.1409
+scale = Vector2( 0.805719, 0.961339 )
+script = ExtResource( 3 )
+
+[node name="thorn3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 680, -71 )
+rotation = -3.1409
+scale = Vector2( 1.97995, 1.15827 )
+script = ExtResource( 3 )
+
+[node name="sugar" type="Area2D" parent="."]
+position = Vector2( 556.004, 18.2023 )
+collision_layer = 2
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="sugar"]
+position = Vector2( -280, 90 )
+scale = Vector2( 0.168115, 0.195211 )
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="sugar"]
+position = Vector2( -282, 91 )
+shape = SubResource( 3 )
+
+[connection signal="body_entered" from="thorn" to="thorn" method="_on_thorn_body_entered"]
+[connection signal="body_entered" from="thorn2" to="thorn2" method="_on_thorn_body_entered"]
+[connection signal="body_entered" from="thorn3" to="thorn3" method="_on_thorn_body_entered"]
+[connection signal="body_entered" from="sugar" to="sugar" method="_on_sugar_body_entered"]
