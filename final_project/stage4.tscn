@@ -37,8 +37,8 @@ func _physics_process(delta):
 	if not is_on_floor():
 		$bean.play(\"jump\")
 	
-	#if !Stage1.isRotate:
-		#velocity.y += gravity
+	if get_parent().isRotate:
+		velocity.y += gravity/2
 		
 	if !get_parent().isRotate:
 		velocity.y += gravity

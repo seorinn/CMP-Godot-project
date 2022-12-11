@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://sugar.gd" type="Script" id=1]
 [ext_resource path="res://player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,10 @@
 [ext_resource path="res://asset/candy.png" type="Texture" id=7]
 [ext_resource path="res://thorn2.gd" type="Script" id=8]
 [ext_resource path="res://GameStage.gd" type="Script" id=9]
+[ext_resource path="res://asset_item/Item_grass.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Area2D.gd" type="Script" id=11]
+[ext_resource path="res://asset_item/Obstacles_Tree.tscn" type="PackedScene" id=12]
+[ext_resource path="res://asset_item/Item_fire.tscn" type="PackedScene" id=13]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 0, 64, 64, 0, 64, 0, 0 )
@@ -43,7 +47,9 @@ var velocity = Vector2(0, 0)
 var speed = 200
 var jump = -700
 var gravity = 50
-
+var mode_shield = false
+var mode_fire = false
+var mode_water = false
 
 func _physics_process(delta):
 	velocity.x = 0
@@ -65,8 +71,8 @@ func _physics_process(delta):
 	if not is_on_floor():
 		$bean.play(\"jump\")
 	
-	#if !Stage1.isRotate:
-		#velocity.y += gravity
+	if  get_parent().isRotate:
+		velocity.y += gravity/2
 		
 	if !get_parent().isRotate:
 		velocity.y += gravity
@@ -79,9 +85,93 @@ func _physics_process(delta):
 #	velocity.y += gravity
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
+	if(mode_shield):                  # shield image
+		$shield.visible = true
+	else:
+		$shield.visible = false
+	
+	if(mode_fire):                 # fire image
+		$fire.visible = true
+	else:
+		$fire.visible = false
+	if(mode_water):                 # grass image
+		$water.visible = true
+	else:
+		$water.visible = false
+	
+
+
+func _on_fire_body_entered(body):
+	if body == self:
+		mode_fire = true
+		mode_water = false
+
+
+func _on_water_body_entered(body):
+	if body == self:
+		mode_fire = false
+		mode_water = true
 "
 
 [sub_resource type="CircleShape2D" id=3]
+
+[sub_resource type="Animation" id=5]
+
+[sub_resource type="Animation" id=6]
+resource_name = "myAnimation"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../tree2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.39, 0.39 ), Vector2( 0.39, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../tree2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 42, -299 ), Vector2( 82, -299 ) ]
+}
+
+[sub_resource type="Animation" id=7]
+
+[sub_resource type="Animation" id=8]
+resource_name = "myAnimation"
+tracks/0/type = "value"
+tracks/0/path = NodePath("../tree2:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0.39, 0.39 ), Vector2( 0.39, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("../tree2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 42, -299 ), Vector2( 82, -299 ) ]
+}
 
 [node name="stage5" type="Node2D"]
 position = Vector2( 524, 288 )
@@ -121,12 +211,6 @@ rotation = 1.5724
 scale = Vector2( 1.68518, 1.52201 )
 script = ExtResource( 8 )
 
-[node name="thorn6" parent="." instance=ExtResource( 3 )]
-position = Vector2( 201, -538 )
-rotation = -4.71258
-scale = Vector2( 1.05877, 1.33938 )
-script = ExtResource( 8 )
-
 [node name="thorn7" parent="." instance=ExtResource( 3 )]
 position = Vector2( 23, -542 )
 rotation = -4.71258
@@ -162,9 +246,71 @@ shape = SubResource( 3 )
 [node name="gameMusic" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
 
+[node name="water" parent="." instance=ExtResource( 10 )]
+position = Vector2( -176, 120 )
+rotation = 3.14159
+
+[node name="tree2" parent="." instance=ExtResource( 12 )]
+position = Vector2( 42, -299 )
+rotation = 1.5708
+scale = Vector2( 0.39, 0.39 )
+
+[node name="Area_Tree" type="Area2D" parent="tree2"]
+script = ExtResource( 11 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="tree2/Area_Tree"]
+scale = Vector2( 1.27535, 1.27535 )
+polygon = PoolVector2Array( -18, 63, -17, 28, -30, 41, -56, 24, -67, -9, -60, -55, -22, -91, 20, -94, 58, -56, 68, -27, 73, 3, 61, 11, 60, 27, 35, 41, 18, 26, 21, 64 )
+
+[node name="Timer" type="Timer" parent="tree2/Area_Tree"]
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="tree2/Area_Tree"]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="tree2"]
+reset_on_save = false
+anims/RESET = SubResource( 5 )
+anims/myAnimation = SubResource( 6 )
+
+[node name="fire" parent="." instance=ExtResource( 13 )]
+position = Vector2( 350, -389 )
+rotation = 3.14159
+
+[node name="tree3" parent="." instance=ExtResource( 12 )]
+position = Vector2( 238, 194 )
+scale = Vector2( 0.39, 0.39 )
+
+[node name="Area_Tree" type="Area2D" parent="tree3"]
+script = ExtResource( 11 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="tree3/Area_Tree"]
+scale = Vector2( 1.27535, 1.27535 )
+polygon = PoolVector2Array( -18, 63, -17, 28, -30, 41, -56, 24, -67, -9, -60, -55, -22, -91, 20, -94, 58, -56, 68, -27, 73, 3, 61, 11, 60, 27, 35, 41, 18, 26, 21, 64 )
+
+[node name="Timer" type="Timer" parent="tree3/Area_Tree"]
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="tree3/Area_Tree"]
+one_shot = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="tree3"]
+reset_on_save = false
+anims/RESET = SubResource( 7 )
+anims/myAnimation = SubResource( 8 )
+
 [connection signal="body_entered" from="thorn" to="thorn" method="_on_thorn_body_entered"]
-[connection signal="body_entered" from="thorn6" to="thorn6" method="_on_thorn_body_entered"]
 [connection signal="body_entered" from="thorn7" to="thorn7" method="_on_thorn_body_entered"]
 [connection signal="body_entered" from="thorn3" to="thorn3" method="_on_thorn_body_entered"]
 [connection signal="body_entered" from="thorn4" to="thorn4" method="_on_thorn_body_entered"]
 [connection signal="body_entered" from="sugar" to="sugar" method="_on_lastSugar_body_entered"]
+[connection signal="body_entered" from="water" to="player" method="_on_water_body_entered"]
+[connection signal="body_entered" from="tree2/Area_Tree" to="tree2/Area_Tree" method="_on_Area_Tree_body_entered"]
+[connection signal="timeout" from="tree2/Area_Tree/Timer" to="tree2/Area_Tree" method="_on_Timer_timeout"]
+[connection signal="timeout" from="tree2/Area_Tree/Timer2" to="tree2/Area_Tree" method="_on_Timer2_timeout"]
+[connection signal="animation_finished" from="tree2/AnimationPlayer" to="tree2/Area_Tree" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="body_entered" from="fire" to="player" method="_on_fire_body_entered"]
+[connection signal="body_entered" from="tree3/Area_Tree" to="tree3/Area_Tree" method="_on_Area_Tree_body_entered"]
+[connection signal="timeout" from="tree3/Area_Tree/Timer" to="tree3/Area_Tree" method="_on_Timer_timeout"]
+[connection signal="timeout" from="tree3/Area_Tree/Timer2" to="tree3/Area_Tree" method="_on_Timer2_timeout"]
+[connection signal="animation_finished" from="tree3/AnimationPlayer" to="tree3/Area_Tree" method="_on_AnimationPlayer_animation_finished"]
