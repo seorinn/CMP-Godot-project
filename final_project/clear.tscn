@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://asset/DNFBitBitTTF.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://asset/HBIOS-SYS-prop.ttf" type="DynamicFontData" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://asset/button60.png" type="Texture" id=4]
 [ext_resource path="res://clear.gd" type="Script" id=5]
 [ext_resource path="res://asset/button40.png" type="Texture" id=6]
+[ext_resource path="res://numAttempts.gd" type="Script" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 128
@@ -78,13 +79,24 @@ text = "NEXT"
 align = 1
 
 [node name="record" type="Label" parent="."]
-margin_left = 4.0
-margin_top = 318.0
-margin_right = 1027.0
-margin_bottom = 358.0
+margin_left = -20.0
+margin_top = 369.0
+margin_right = 1003.0
+margin_bottom = 409.0
+custom_colors/font_color = Color( 1, 0.701961, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "Attempts: "
+align = 1
+
+[node name="Attempts" type="Label" parent="."]
+margin_left = 148.0
+margin_top = 369.0
+margin_right = 1171.0
+margin_bottom = 409.0
 custom_colors/font_color = Color( 1, 0.701961, 0, 1 )
 custom_fonts/font = SubResource( 4 )
 text = "03:48:99"
 align = 1
+script = ExtResource( 7 )
 
 [connection signal="pressed" from="Next/NextButton" to="." method="_on_NextButton_pressed"]

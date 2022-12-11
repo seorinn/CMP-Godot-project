@@ -1,5 +1,4 @@
 extends Node2D
-
 func _ready():
 	GameData.clear = -1
 	if(GameData.musicPlaying == 1):
@@ -11,4 +10,5 @@ func _on_sugar_body_entered(body):
 
 
 func _on_NextButton_pressed():
+	
 	get_tree().change_scene("res://Stages.tscn")
