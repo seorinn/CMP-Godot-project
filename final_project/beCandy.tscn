@@ -1,0 +1,75 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://asset/button40.png" type="Texture" id=1]
+[ext_resource path="res://asset/sound/8bit-music-for-game-68698.mp3" type="AudioStream" id=2]
+[ext_resource path="res://asset/HBIOS-SYS-prop.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://asset/happyCandy.png" type="Texture" id=4]
+[ext_resource path="res://asset/button60.png" type="Texture" id=5]
+[ext_resource path="res://asset/background1.jpg" type="Texture" id=6]
+[ext_resource path="res://bgMusic.tscn" type="PackedScene" id=7]
+[ext_resource path="res://beCandy.gd" type="Script" id=8]
+
+[sub_resource type="DynamicFont" id=5]
+size = 28
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 3 )
+
+[node name="beCandy" type="Node2D"]
+script = ExtResource( 8 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 512, 300 )
+scale = Vector2( 1.90596, 1.86025 )
+texture = ExtResource( 6 )
+
+[node name="sadBeanImg" type="Sprite" parent="."]
+position = Vector2( 513, 143 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="sadBeanStory" type="Label" parent="."]
+margin_left = 1.0
+margin_top = 215.0
+margin_right = 1022.0
+margin_bottom = 443.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "
+Now, the bean has become candy 
+
+by getting sweetness through various stages. 
+
+The candy that has gained popularity 
+
+from children is happy."
+align = 1
+
+[node name="Quit" type="Node2D" parent="."]
+position = Vector2( 810, 510 )
+
+[node name="QuitButton" type="TextureButton" parent="Quit"]
+margin_right = 192.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 5 )
+
+[node name="quit" type="Label" parent="Quit"]
+margin_left = 1.0
+margin_top = 17.0
+margin_right = 192.0
+margin_bottom = 37.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "QUIT
+"
+align = 1
+
+[node name="bgMusic" type="AudioStreamPlayer2D" parent="." instance=ExtResource( 7 )]
+stream = ExtResource( 2 )
+
+[connection signal="pressed" from="Quit/QuitButton" to="." method="_on_QuitButton_pressed"]

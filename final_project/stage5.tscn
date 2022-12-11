@@ -167,4 +167,4 @@ stream = ExtResource( 5 )
 [connection signal="body_entered" from="thorn7" to="thorn7" method="_on_thorn_body_entered"]
 [connection signal="body_entered" from="thorn3" to="thorn3" method="_on_thorn_body_entered"]
 [connection signal="body_entered" from="thorn4" to="thorn4" method="_on_thorn_body_entered"]
-[connection signal="body_entered" from="sugar" to="sugar" method="_on_sugar_body_entered"]
+[connection signal="body_entered" from="sugar" to="sugar" method="_on_lastSugar_body_entered"]
