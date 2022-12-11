@@ -8,6 +8,6 @@ func _on_thorn_body_entered(body):
 		if(GameData.effectSound == 1):
 			KilledSound.play()
 		body.queue_free()
-		get_tree().change_scene("res://stage2.tscn")
+		get_tree().change_scene("res://stage5.tscn")
 
 
