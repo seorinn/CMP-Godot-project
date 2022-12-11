@@ -1,13 +1,42 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://background/background1.jpg" type="Texture" id=1]
 [ext_resource path="res://player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://stage3.gd" type="Script" id=3]
-[ext_resource path="res://thorn.gd" type="Script" id=4]
+[ext_resource path="res://GameStage.gd" type="Script" id=3]
+[ext_resource path="res://thorn.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sugar.gd" type="Script" id=5]
 [ext_resource path="res://asset/candy.png" type="Texture" id=6]
+[ext_resource path="res://asset/sound/gamemusic-6082.mp3" type="AudioStream" id=7]
+[ext_resource path="res://background/block.png" type="Texture" id=8]
+[ext_resource path="res://thorn1.gd" type="Script" id=9]
 
-[sub_resource type="GDScript" id=3]
+[sub_resource type="ConvexPolygonShape2D" id=1]
+points = PoolVector2Array( 64, 0, 64, 64, 0, 64, 0, 0 )
+
+[sub_resource type="TileSet" id=2]
+0/name = "block.png 0"
+0/texture = ExtResource( 8 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 64, 64 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 1 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 1 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+
+[sub_resource type="GDScript" id=4]
 script/source = "extends KinematicBody2D
 
 var velocity = Vector2(0, 0)
@@ -52,197 +81,60 @@ func _physics_process(delta):
 	
 "
 
-[sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 8.11755, 14.281 )
-
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=3]
 
 [node name="stage3" type="Node2D"]
-position = Vector2( 487, 289 )
+position = Vector2( 524, 288 )
 script = ExtResource( 3 )
 
 [node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( 27, 9 )
-scale = Vector2( 4.95826, 5.18869 )
+position = Vector2( 5.00391, 131.202 )
+scale = Vector2( 6.14899, 7.54163 )
 texture = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 27, 9 )
-scale = Vector2( 1.91104, 1.84484 )
+position = Vector2( -14.9962, 27.2023 )
+scale = Vector2( 2.02279, 2.26392 )
 texture = ExtResource( 1 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
-position = Vector2( -488, -293 )
+[node name="TileMap" type="TileMap" parent="."]
+modulate = Color( 1, 1, 1, 0.705882 )
+position = Vector2( -558.996, -292.798 )
+tile_set = SubResource( 2 )
 collision_layer = 2
-
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D"]
-color = Color( 0.662745, 0.376471, 0.823529, 0.784314 )
-polygon = PoolVector2Array( 0, 2, 1, 601, 1024, 598, 1024, 2, 94, 1, 94, 64, 973, 63, 971, 547, 587, 550, 587, 321, 473, 319, 472, 540, 85, 544, 94, -1 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
-polygon = PoolVector2Array( 0, 2, -1, 600, 1023, 597, 1023, 3, 86, 1, 91, 66, 971, 65, 971, 549, 590, 545, 586, 321, 473, 321, 472, 537, 87, 539, 91, 3 )
-
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
-collision_layer = 2
-
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D2"]
-color = Color( 0.662745, 0.376471, 0.823529, 0.784314 )
-polygon = PoolVector2Array( -222, -106, 298, -103, 298, 178, 227, 178, 227, -41, -224, -45 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D2"]
-polygon = PoolVector2Array( -223, -105, -224, -43, 224, -41, 226, 177, 297, 178, 297, -102 )
-
-[node name="StaticBody2D3" type="StaticBody2D" parent="."]
-position = Vector2( -271, 106 )
-scale = Vector2( 0.211996, 0.718367 )
-collision_layer = 2
-
-[node name="Polygon2D" type="Polygon2D" parent="StaticBody2D3"]
-color = Color( 0.662745, 0.376471, 0.823529, 0.784314 )
-polygon = PoolVector2Array( -254, -107, 471.707, -105.795, 471.707, 201.847, 188.683, 201.847, 188.683, -40.3693, -253, -44 )
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D3"]
-polygon = PoolVector2Array( -255, -108, -252, -43, 183.962, -43.1177, 188.683, 200.455, 476.424, 200.455, 481.141, -107.187 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 65536, 0, 0, 65552, 0, 0, 131072, 0, 0, 131088, 0, 0, 196608, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 196613, 0, 0, 196614, 0, 0, 196615, 0, 0, 196616, 0, 0, 196617, 0, 0, 196624, 0, 0, 262144, 0, 0, 262153, 0, 0, 262155, 0, 0, 262156, 0, 0, 262157, 0, 0, 262158, 0, 0, 262160, 0, 0, 327680, 0, 0, 327689, 0, 0, 327691, 0, 0, 327692, 0, 0, 327693, 0, 0, 327694, 0, 0, 327696, 0, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 0, 0, 393225, 0, 0, 393232, 0, 0, 458752, 0, 0, 458761, 0, 0, 458768, 0, 0, 524288, 0, 0, 524297, 0, 0, 524304, 0, 0, 589824, 0, 0, 589825, 0, 0, 589826, 0, 0, 589827, 0, 0, 589828, 0, 0, 589829, 0, 0, 589830, 0, 0, 589831, 0, 0, 589832, 0, 0, 589833, 0, 0, 589834, 0, 0, 589835, 0, 0, 589836, 0, 0, 589837, 0, 0, 589838, 0, 0, 589839, 0, 0, 589840, 0, 0 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
-position = Vector2( -117, 146 )
+position = Vector2( -372.996, 255.202 )
 scale = Vector2( 0.2, 0.2 )
-script = SubResource( 3 )
+script = SubResource( 4 )
 
 [node name="Camera2D" type="Camera2D" parent="player"]
-scale = Vector2( 1.00118, 1.00808 )
 current = true
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
-drag_margin_top = 0.4
-drag_margin_bottom = 0.4
 
-[node name="thorn" type="Area2D" parent="."]
-collision_layer = 2
-script = ExtResource( 4 )
+[node name="thorn" parent="." instance=ExtResource( 4 )]
+position = Vector2( -407.996, 145.202 )
+scale = Vector2( 1.21479, 0.992044 )
+script = ExtResource( 9 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="thorn"]
-position = Vector2( 477, 205 )
-scale = Vector2( 0.641509, 3.36111 )
-shape = SubResource( 1 )
+[node name="thorn2" parent="." instance=ExtResource( 4 )]
+position = Vector2( -319.996, -98.7977 )
+rotation = -3.1409
+scale = Vector2( 0.805719, 0.961339 )
+script = ExtResource( 9 )
 
-[node name="Polygon2D" type="Polygon2D" parent="thorn"]
-scale = Vector2( 1.00125, 1 )
-color = Color( 0.329412, 0.627451, 0.784314, 1 )
-polygon = PoolVector2Array( 483, 156, 470, 165, 482, 173, 471, 181, 481, 189, 470, 199, 482, 206, 470, 216, 482, 224, 471, 232, 482, 240, 469, 247, 484, 254 )
-
-[node name="thorn8" type="Area2D" parent="."]
-position = Vector2( -714, -96 )
-scale = Vector2( 1, 1.34578 )
-collision_layer = 2
-script = ExtResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="thorn8"]
-position = Vector2( 478.207, 205 )
-scale = Vector2( 0.641509, 3.36111 )
-shape = SubResource( 1 )
-
-[node name="Polygon2D" type="Polygon2D" parent="thorn8"]
-color = Color( 0.329412, 0.627451, 0.784314, 1 )
-polygon = PoolVector2Array( 483, 156, 470, 165, 482, 173, 471, 181, 481, 189, 470, 199, 482, 206, 470, 216, 482, 224, 471, 232, 482, 240, 469, 247, 484, 254 )
-
-[node name="thorn4" type="Area2D" parent="."]
-position = Vector2( 123, 227 )
-rotation = -1.56319
-scale = Vector2( 0.954911, 0.300613 )
-collision_layer = 2
-script = ExtResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="thorn4"]
-position = Vector2( 477, 205 )
-scale = Vector2( 0.641509, 3.36111 )
-shape = SubResource( 1 )
-
-[node name="Polygon2D" type="Polygon2D" parent="thorn4"]
-color = Color( 0.329412, 0.627451, 0.784314, 1 )
-polygon = PoolVector2Array( 483, 156, 470, 165, 482, 173, 471, 181, 481, 189, 470, 199, 482, 206, 470, 216, 482, 224, 471, 232, 482, 240, 469, 247, 484, 254 )
-
-[node name="thorn5" type="Area2D" parent="."]
-position = Vector2( -19, 227 )
-rotation = -1.56319
-scale = Vector2( 0.956994, 0.290834 )
-collision_layer = 2
-script = ExtResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="thorn5"]
-position = Vector2( 477, 205 )
-scale = Vector2( 0.641509, 3.36111 )
-shape = SubResource( 1 )
-
-[node name="Polygon2D" type="Polygon2D" parent="thorn5"]
-color = Color( 0.329412, 0.627451, 0.784314, 1 )
-polygon = PoolVector2Array( 483, 156, 470, 165, 482, 173, 471, 181, 481, 189, 470, 199, 482, 206, 470, 216, 482, 224, 471, 232, 482, 240, 469, 247, 484, 254 )
-
-[node name="thorn2" type="Area2D" parent="."]
-position = Vector2( -255, -311 )
-scale = Vector2( 0.997406, 1.71066 )
-collision_layer = 2
-script = ExtResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="thorn2"]
-position = Vector2( 477, 205 )
-scale = Vector2( 0.641509, 3.36111 )
-shape = SubResource( 1 )
-
-[node name="Polygon2D" type="Polygon2D" parent="thorn2"]
-color = Color( 0.329412, 0.627451, 0.784314, 1 )
-polygon = PoolVector2Array( 483, 156, 470, 165, 482, 173, 471, 181, 481, 189, 470, 199, 482, 206, 470, 216, 482, 224, 471, 232, 482, 240, 469, 247, 484, 254 )
-
-[node name="thorn3" type="Area2D" parent="."]
-position = Vector2( 74, 274 )
-rotation = -3.12966
-scale = Vector2( 0.98521, 1.96807 )
-collision_layer = 2
-script = ExtResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="thorn3"]
-position = Vector2( 477, 205 )
-scale = Vector2( 0.641509, 3.36111 )
-shape = SubResource( 1 )
-
-[node name="Polygon2D" type="Polygon2D" parent="thorn3"]
-color = Color( 0.329412, 0.627451, 0.784314, 1 )
-polygon = PoolVector2Array( 483, 156, 470, 165, 482, 173, 471, 181, 481, 189, 470, 199, 482, 206, 470, 216, 482, 224, 471, 232, 482, 240, 469, 247, 484, 254 )
-
-[node name="thorn6" type="Area2D" parent="."]
-position = Vector2( 250, 146 )
-rotation = -3.12966
-scale = Vector2( 0.959046, 0.722177 )
-collision_layer = 2
-script = ExtResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="thorn6"]
-position = Vector2( 477, 205 )
-scale = Vector2( 0.641509, 3.36111 )
-shape = SubResource( 1 )
-
-[node name="Polygon2D" type="Polygon2D" parent="thorn6"]
-color = Color( 0.329412, 0.627451, 0.784314, 1 )
-polygon = PoolVector2Array( 483, 156, 470, 165, 482, 173, 471, 181, 481, 189, 470, 199, 482, 206, 470, 216, 482, 224, 471, 232, 482, 240, 469, 247, 484, 254 )
-
-[node name="thorn7" type="Area2D" parent="."]
-position = Vector2( 25, -216 )
-rotation = -4.72124
-scale = Vector2( 0.953372, 1.70566 )
-collision_layer = 2
-script = ExtResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="thorn7"]
-position = Vector2( 477, 205 )
-scale = Vector2( 0.641509, 3.36111 )
-shape = SubResource( 1 )
-
-[node name="Polygon2D" type="Polygon2D" parent="thorn7"]
-color = Color( 0.329412, 0.627451, 0.784314, 1 )
-polygon = PoolVector2Array( 483, 156, 470, 165, 482, 173, 471, 181, 481, 189, 470, 199, 482, 206, 470, 216, 482, 224, 471, 232, 482, 240, 469, 247, 484, 254 )
+[node name="thorn3" parent="." instance=ExtResource( 4 )]
+position = Vector2( 680, -71 )
+rotation = -3.1409
+scale = Vector2( 1.97995, 1.15827 )
+script = ExtResource( 9 )
 
 [node name="sugar" type="Area2D" parent="."]
-position = Vector2( 32, 3 )
+position = Vector2( 556.004, 18.2023 )
+collision_layer = 2
 script = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="sugar"]
@@ -252,14 +144,12 @@ texture = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="sugar"]
 position = Vector2( -282, 91 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
+
+[node name="gameMusic" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
 
 [connection signal="body_entered" from="thorn" to="thorn" method="_on_thorn_body_entered"]
-[connection signal="body_entered" from="thorn8" to="thorn8" method="_on_thorn_body_entered"]
-[connection signal="body_entered" from="thorn4" to="thorn4" method="_on_thorn_body_entered"]
-[connection signal="body_entered" from="thorn5" to="thorn5" method="_on_thorn_body_entered"]
 [connection signal="body_entered" from="thorn2" to="thorn2" method="_on_thorn_body_entered"]
 [connection signal="body_entered" from="thorn3" to="thorn3" method="_on_thorn_body_entered"]
-[connection signal="body_entered" from="thorn6" to="thorn6" method="_on_thorn_body_entered"]
-[connection signal="body_entered" from="thorn7" to="thorn7" method="_on_thorn_body_entered"]
 [connection signal="body_entered" from="sugar" to="sugar" method="_on_sugar_body_entered"]

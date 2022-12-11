@@ -16,7 +16,6 @@ config/icon="res://asset/icon.png"
 
 [autoload]
 
-Stage1="*res://Stage1.gd"
 GameData="*res://GameData.gd"
 GetCandySound="*res://getCandySound.tscn"
 JumpSound="*res://jumpSound.tscn"
