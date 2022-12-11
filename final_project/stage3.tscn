@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://background/background1.jpg" type="Texture" id=1]
 [ext_resource path="res://player.tscn" type="PackedScene" id=2]
@@ -6,6 +6,51 @@
 [ext_resource path="res://thorn.gd" type="Script" id=4]
 [ext_resource path="res://sugar.gd" type="Script" id=5]
 [ext_resource path="res://asset/candy.png" type="Texture" id=6]
+
+[sub_resource type="GDScript" id=3]
+script/source = "extends KinematicBody2D
+
+var velocity = Vector2(0, 0)
+var speed = 200
+var jump = -700
+var gravity = 50
+
+
+func _physics_process(delta):
+	velocity.x = 0
+	
+	if Input.is_action_pressed(\"ui_right\"):
+		velocity.x = speed
+		$bean.play(\"walk\")
+		$bean.flip_h = true
+		
+		
+	elif Input.is_action_pressed(\"ui_left\"):
+		velocity.x = -speed
+		$bean.play(\"walk\")
+		$bean.flip_h = false
+		
+	else:
+		$bean.play(\"default\")
+	
+	if not is_on_floor():
+		$bean.play(\"jump\")
+	
+	#if !Stage1.isRotate:
+		#velocity.y += gravity
+		
+	if !get_parent().isRotate:
+		velocity.y += gravity
+	
+	if Input.is_action_pressed(\"jump\") and is_on_floor():
+		velocity.y += jump
+		if(GameData.effectSound == 1):
+			JumpSound.play()
+		
+#	velocity.y += gravity
+	velocity = move_and_slide(velocity, Vector2.UP)
+	
+"
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 8.11755, 14.281 )
@@ -61,6 +106,8 @@ polygon = PoolVector2Array( -255, -108, -252, -43, 183.962, -43.1177, 188.683, 2
 
 [node name="player" parent="." instance=ExtResource( 2 )]
 position = Vector2( -117, 146 )
+scale = Vector2( 0.2, 0.2 )
+script = SubResource( 3 )
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 scale = Vector2( 1.00118, 1.00808 )

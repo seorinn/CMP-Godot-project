@@ -11,10 +11,22 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("ui_right"):
 		velocity.x = speed
+		$bean.play("walk")
+		$bean.flip_h = true
 		
-	if Input.is_action_pressed("ui_left"):
+		
+	elif Input.is_action_pressed("ui_left"):
 		velocity.x = -speed
+		$bean.play("walk")
+		$bean.flip_h = false
+		
+	else:
+		$bean.play("default")
 	
+	if not is_on_floor():
+		$bean.play("jump")
+		
+		
 	#if !Stage1.isRotate:
 		#velocity.y += gravity
 		
