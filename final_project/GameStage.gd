@@ -16,7 +16,8 @@ func _process(delta):
 		for i in range(18):
 			rotation_degrees += 5
 			#$player.rotation_degrees-=5
-			yield(get_tree().create_timer(delta/2), "timeout")
+			yield(get_tree().create_timer(delta/2), "timeout")		
+		$player/bean.rotation_degrees-=90
 		yield(get_tree().create_timer(delta), "timeout")
 		isRotate = false
 		yield(get_tree().create_timer(0.3), "timeout")
@@ -29,7 +30,8 @@ func _process(delta):
 		for i in range(18):
 			rotation_degrees -= 5
 			#$player.rotation_degrees+=5
-			yield(get_tree().create_timer(delta/2), "timeout")
+			yield(get_tree().create_timer(delta/2), "timeout")			
+		$player/bean.rotation_degrees+=90
 		yield(get_tree().create_timer(delta), "timeout")
 		isRotate = false
 		yield(get_tree().create_timer(0.3), "timeout")
