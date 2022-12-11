@@ -6,7 +6,7 @@ var jump = -700
 var gravity = 50
 
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	velocity.x = 0
 	
 	if Input.is_action_pressed("ui_right"):

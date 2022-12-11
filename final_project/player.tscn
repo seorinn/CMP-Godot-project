@@ -1,10 +1,15 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://asset/bean_hurt.png" type="Texture" id=1]
 [ext_resource path="res://player.gd" type="Script" id=2]
 [ext_resource path="res://asset/bean_walk.png" type="Texture" id=3]
 [ext_resource path="res://asset/bean_idle.png" type="Texture" id=4]
 [ext_resource path="res://asset/bean_jump.png" type="Texture" id=5]
+[ext_resource path="res://asset_item/shield_Edit.png" type="Texture" id=6]
+[ext_resource path="res://asset_item/fire_animated.png" type="Texture" id=7]
+[ext_resource path="res://asset_item/shieldWhite_Edit.png" type="Texture" id=8]
+[ext_resource path="res://asset_item/shieldGreen_Edit.png" type="Texture" id=9]
+[ext_resource path="res://asset_item/cascada.png" type="Texture" id=10]
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
@@ -29,6 +34,60 @@ animations = [ {
 "speed": 5.0
 } ]
 
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ ExtResource( 6 ), ExtResource( 9 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=6]
+flags = 4
+atlas = ExtResource( 7 )
+region = Rect2( 64, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=7]
+animations = [ {
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=8]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 0, 0, 40, 50 )
+
+[sub_resource type="AtlasTexture" id=9]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 40, 0, 40, 50 )
+
+[sub_resource type="AtlasTexture" id=10]
+flags = 4
+atlas = ExtResource( 10 )
+region = Rect2( 80, 0, 40, 50 )
+
+[sub_resource type="SpriteFrames" id=11]
+animations = [ {
+"frames": [ SubResource( 8 ), SubResource( 9 ), SubResource( 10 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
 [node name="player" type="KinematicBody2D"]
 collision_mask = 2
 script = ExtResource( 2 )
@@ -40,3 +99,27 @@ playing = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PoolVector2Array( -93, 121, -67, 142, 81, 142, 104, 120, 71, 93, 108, 57, 115, 35, 115, -21, 107, -43, 100, -57, 64, -93, 50, -100, 42, -107, -36, -107, -50, -100, -93, -57, -100, -43, -107, -28, -107, 28, -100, 49, -57, 93 )
+
+[node name="shield" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 0, 19 )
+scale = Vector2( 0.72997, 0.72997 )
+frames = SubResource( 3 )
+frame = 1
+speed_scale = 0.5
+
+[node name="fire" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 0, -163 )
+scale = Vector2( 3.84, 3.84 )
+frames = SubResource( 7 )
+frame = 1
+playing = true
+
+[node name="water" type="AnimatedSprite" parent="."]
+visible = false
+position = Vector2( 0, -151 )
+scale = Vector2( 2, 2 )
+frames = SubResource( 11 )
+frame = 1
+playing = true

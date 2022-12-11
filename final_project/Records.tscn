@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://asset/DNFBitBitTTF.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://asset/HBIOS-SYS-prop.ttf" type="DynamicFontData" id=2]
@@ -7,6 +7,9 @@
 [ext_resource path="res://asset/button40.png" type="Texture" id=5]
 [ext_resource path="res://Records.gd" type="Script" id=6]
 [ext_resource path="res://bgMusic.tscn" type="PackedScene" id=7]
+[ext_resource path="res://bestRecord.gd" type="Script" id=8]
+[ext_resource path="res://recordList.gd" type="Script" id=9]
+[ext_resource path="res://recordList2.gd" type="Script" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 64
@@ -55,16 +58,28 @@ custom_colors/font_color = Color( 1, 0.74902, 0, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "03: 48: 99"
 align = 1
+script = ExtResource( 8 )
 
 [node name="recordList" type="Label" parent="."]
 margin_top = 319.0
 margin_right = 1021.0
-margin_bottom = 500.0
+margin_bottom = 403.0
 custom_fonts/font = SubResource( 5 )
-text = "2nd 04 : 12 : 45
-
-3rd -- : -- : --"
+text = "2
+"
 align = 1
+script = ExtResource( 9 )
+
+[node name="recordList2" type="Label" parent="."]
+margin_top = 420.0
+margin_right = 1021.0
+margin_bottom = 504.0
+custom_fonts/font = SubResource( 5 )
+text = "3
+
+"
+align = 1
+script = ExtResource( 10 )
 
 [node name="Quit" type="Node2D" parent="."]
 position = Vector2( 810, 510 )
