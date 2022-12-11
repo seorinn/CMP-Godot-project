@@ -171,7 +171,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id=7]
 tracks/0/type = "value"
-tracks/0/path = NodePath("../tree2:scale")
+tracks/0/path = NodePath("../tree3:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -180,10 +180,10 @@ tracks/0/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( 0.39, 0.39 ), Vector2( 0.39, 0.85 ) ]
+"values": [ Vector2( 121, 130 ), Vector2( 121, 100 ) ]
 }
 tracks/1/type = "value"
-tracks/1/path = NodePath("../tree2:position")
+tracks/1/path = NodePath("../tree3:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/imported = false
@@ -192,31 +192,7 @@ tracks/1/keys = {
 "times": PoolRealArray( 0, 1 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
-"values": [ Vector2( -152, 162 ), Vector2( -120, 162 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("../tree3:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 121, 130 ) ]
-}
-tracks/3/type = "value"
-tracks/3/path = NodePath("../tree3:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0.39, 0.85 ) ]
+"values": [ Vector2( 0.39, 0.39 ), Vector2( 0.39, 0.85 ) ]
 }
 
 [sub_resource type="Animation" id=8]
@@ -299,13 +275,15 @@ stream = ExtResource( 3 )
 position = Vector2( -258, 121 )
 
 [node name="tree" parent="." instance=ExtResource( 10 )]
-position = Vector2( -18, 496 )
+visible = false
+position = Vector2( -167, 514 )
 scale = Vector2( 0.519999, 0.519999 )
 
 [node name="Area_Tree" type="Area2D" parent="tree"]
 script = ExtResource( 9 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="tree/Area_Tree"]
+position = Vector2( 150, 132.693 )
 scale = Vector2( 1.03194, 1.03194 )
 polygon = PoolVector2Array( -18, 63, -17, 28, -30, 41, -56, 24, -67, -9, -60, -55, -22, -91, 20, -94, 58, -56, 68, -27, 73, 3, 61, 11, 60, 27, 35, 41, 18, 26, 21, 64 )
 

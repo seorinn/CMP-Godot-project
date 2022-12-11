@@ -35,7 +35,7 @@ func _on_Area_Tree_body_entered(body):          # colliding with tree
 		p.mode_fire = false
 	elif body ==p&&p.mode_water:  
 		if get_parent().scale.y<0.85:            # grow tree
-			grow= true
+			$"../AnimationPlayer".play("myAnimation")
 			p.mode_water = false
 	else:
 		return
