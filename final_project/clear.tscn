@@ -79,6 +79,7 @@ text = "NEXT"
 align = 1
 
 [node name="record" type="Label" parent="."]
+visible = false
 margin_left = -20.0
 margin_top = 369.0
 margin_right = 1003.0
@@ -89,9 +90,8 @@ text = "Attempts: "
 align = 1
 
 [node name="Attempts" type="Label" parent="."]
-margin_left = 148.0
 margin_top = 369.0
-margin_right = 1171.0
+margin_right = 1023.0
 margin_bottom = 409.0
 custom_colors/font_color = Color( 1, 0.701961, 0, 1 )
 custom_fonts/font = SubResource( 4 )

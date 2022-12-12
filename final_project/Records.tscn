@@ -58,6 +58,7 @@ text = "Best Record in each Stage"
 align = 1
 
 [node name="bestRecord" type="Label" parent="."]
+visible = false
 margin_left = 1.0
 margin_top = 202.0
 margin_right = 1025.0
@@ -69,6 +70,7 @@ align = 1
 script = ExtResource( 8 )
 
 [node name="recordList" type="Label" parent="."]
+visible = false
 margin_top = 319.0
 margin_right = 1021.0
 margin_bottom = 403.0
@@ -79,6 +81,7 @@ align = 1
 script = ExtResource( 9 )
 
 [node name="recordList2" type="Label" parent="."]
+visible = false
 margin_top = 420.0
 margin_right = 1021.0
 margin_bottom = 504.0

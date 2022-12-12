@@ -1,4 +1,5 @@
 extends Node2D
+onready var at = get_node("/root/Attempts")
 func _ready():
 	GameData.clear = -1
 	if(GameData.musicPlaying == 1):
@@ -10,5 +11,5 @@ func _on_sugar_body_entered(body):
 
 
 func _on_NextButton_pressed():
-	
+	at.attemps = 1
 	get_tree().change_scene("res://Stages.tscn")
