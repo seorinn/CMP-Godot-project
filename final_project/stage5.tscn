@@ -304,7 +304,7 @@ anims/myAnimation = SubResource( 8 )
 [connection signal="body_entered" from="thorn7" to="thorn7" method="_on_thorn_body_entered"]
 [connection signal="body_entered" from="thorn3" to="thorn3" method="_on_thorn_body_entered"]
 [connection signal="body_entered" from="thorn4" to="thorn4" method="_on_thorn_body_entered"]
-[connection signal="body_entered" from="sugar" to="sugar" method="_on_lastSugar_body_entered"]
+[connection signal="body_entered" from="sugar" to="sugar" method="_on_sugar_body_entered"]
 [connection signal="body_entered" from="water" to="player" method="_on_water_body_entered"]
 [connection signal="body_entered" from="tree2/Area_Tree" to="tree2/Area_Tree" method="_on_Area_Tree_body_entered"]
 [connection signal="timeout" from="tree2/Area_Tree/Timer" to="tree2/Area_Tree" method="_on_Timer_timeout"]

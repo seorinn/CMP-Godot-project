@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://asset/DNFBitBitTTF.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://asset/HBIOS-SYS-prop.ttf" type="DynamicFontData" id=2]
@@ -8,8 +8,6 @@
 [ext_resource path="res://Records.gd" type="Script" id=6]
 [ext_resource path="res://bgMusic.tscn" type="PackedScene" id=7]
 [ext_resource path="res://bestRecord.gd" type="Script" id=8]
-[ext_resource path="res://recordList.gd" type="Script" id=9]
-[ext_resource path="res://recordList2.gd" type="Script" id=10]
 [ext_resource path="res://asset/square_hover.png" type="Texture" id=11]
 [ext_resource path="res://asset/square.png" type="Texture" id=12]
 
@@ -18,18 +16,6 @@ size = 64
 outline_size = 2
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 80
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 40
-outline_size = 1
-outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 32
@@ -40,6 +26,12 @@ size = 64
 outline_size = 3
 outline_color = Color( 0, 0, 0, 1 )
 font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 80
+outline_size = 1
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 2 )
 
 [node name="Records" type="Node2D"]
 script = ExtResource( 6 )
@@ -56,41 +48,6 @@ margin_bottom = 168.0
 custom_fonts/font = SubResource( 1 )
 text = "Best Record in each Stage"
 align = 1
-
-[node name="bestRecord" type="Label" parent="."]
-visible = false
-margin_left = 1.0
-margin_top = 202.0
-margin_right = 1025.0
-margin_bottom = 293.0
-custom_colors/font_color = Color( 1, 0.74902, 0, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "1"
-align = 1
-script = ExtResource( 8 )
-
-[node name="recordList" type="Label" parent="."]
-visible = false
-margin_top = 319.0
-margin_right = 1021.0
-margin_bottom = 403.0
-custom_fonts/font = SubResource( 5 )
-text = "2
-"
-align = 1
-script = ExtResource( 9 )
-
-[node name="recordList2" type="Label" parent="."]
-visible = false
-margin_top = 420.0
-margin_right = 1021.0
-margin_bottom = 504.0
-custom_fonts/font = SubResource( 5 )
-text = "3
-
-"
-align = 1
-script = ExtResource( 10 )
 
 [node name="Quit" type="Node2D" parent="."]
 position = Vector2( 810, 510 )
