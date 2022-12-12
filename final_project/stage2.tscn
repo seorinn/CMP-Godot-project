@@ -272,7 +272,8 @@ shape = SubResource( 3 )
 stream = ExtResource( 3 )
 
 [node name="water" parent="." instance=ExtResource( 11 )]
-position = Vector2( -258, 121 )
+position = Vector2( -258, 134 )
+scale = Vector2( 0.639999, 0.639999 )
 
 [node name="tree" parent="." instance=ExtResource( 10 )]
 visible = false
@@ -294,9 +295,9 @@ one_shot = true
 one_shot = true
 
 [node name="tree2" parent="." instance=ExtResource( 10 )]
-position = Vector2( -152, 183 )
+position = Vector2( -119, 183 )
 rotation = 1.5708
-scale = Vector2( 0.39, 0.39 )
+scale = Vector2( 0.39, 0.85 )
 
 [node name="Area_Tree" type="Area2D" parent="tree2"]
 script = ExtResource( 9 )
@@ -341,13 +342,15 @@ anims/RESET = SubResource( 7 )
 anims/myAnimation = SubResource( 8 )
 
 [node name="thorn" parent="." instance=ExtResource( 13 )]
-position = Vector2( -230, 164 )
+visible = false
+position = Vector2( 315, 384 )
 rotation = 3.14159
 scale = Vector2( 1.21479, 0.992044 )
 script = ExtResource( 12 )
 
 [node name="thorn2" parent="." instance=ExtResource( 13 )]
-position = Vector2( -103, 164 )
+visible = false
+position = Vector2( 384, 382 )
 rotation = 3.14159
 scale = Vector2( 1.21479, 0.992044 )
 script = ExtResource( 12 )
@@ -383,10 +386,11 @@ scale = Vector2( 1.21479, 0.992044 )
 script = ExtResource( 12 )
 
 [node name="fire" parent="." instance=ExtResource( 4 )]
-position = Vector2( 36, -78 )
+position = Vector2( 123, -65 )
 
 [node name="tree_s" type="StaticBody2D" parent="."]
-position = Vector2( -106, 246 )
+visible = false
+position = Vector2( 143, 330 )
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="tree_s"]
 polygon = PoolVector2Array( -2, 33, 7, 24, 7, 2, 0, -6, -10, -3, -20, -7, -17, -29, 2, -43, 19, -42, 38, -34, 37, -23, 20, -22, 15, -10, 18, 16, 24, 35, 18, 39, 7, 38 )

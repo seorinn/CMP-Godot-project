@@ -2,7 +2,7 @@ extends Node2D
 
 var isRotate = false
 var enableKey = true
-
+onready var at = get_node("/root/Attempts")
 func _ready():
 	if(GameData.musicPlaying == 1):
 		$gameMusic.play()
@@ -37,4 +37,5 @@ func _process(delta):
 
 	
 	if Input.is_action_just_pressed("esc") and enableKey:
+		at.attemps = 1
 		get_tree().change_scene("res://Stages.tscn")
