@@ -16,10 +16,10 @@ func _process(delta):
 		for i in range(18):
 			rotation_degrees += 5
 			$player.rotation_degrees-=5
-			yield(get_tree().create_timer(delta/2), "timeout")
-		yield(get_tree().create_timer(delta), "timeout")
+			yield(get_tree().create_timer(delta/2), "timeout") #adjusting the speed of rotation
+		yield(get_tree().create_timer(delta), "timeout") #adjusting the time to stop the player after rotation
 		isRotate = false
-		yield(get_tree().create_timer(0.3), "timeout")
+		yield(get_tree().create_timer(0.3), "timeout") #prevent map continuous rotation
 		enableKey = true
 
 	#rotate the map to left
