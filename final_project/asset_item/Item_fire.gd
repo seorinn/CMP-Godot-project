@@ -16,4 +16,4 @@ func _ready():
 func _on_Item_fire_body_entered(body):
 	if body == p:
 		$"../player".mode_fire = true
-		#self.queue_free()
+		
