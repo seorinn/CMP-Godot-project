@@ -6,6 +6,7 @@ var jump = -700
 var gravity = 50
 
 
+#player movement and animation
 func _physics_process(_delta):
 	velocity.x = 0
 	
@@ -34,6 +35,5 @@ func _physics_process(_delta):
 		if(GameData.effectSound == 1):
 			JumpSound.play()
 		
-#	velocity.y += gravity
 	velocity = move_and_slide(velocity, Vector2.UP)
 	
