@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://bgMusic.tscn" type="PackedScene" id=1]
+[ext_resource path="res://asset/button40.png" type="Texture" id=2]
+[ext_resource path="res://sadBean.gd" type="Script" id=3]
+[ext_resource path="res://asset/sadBean.png" type="Texture" id=4]
+[ext_resource path="res://asset/HBIOS-SYS-prop.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://asset/button60.png" type="Texture" id=6]
+[ext_resource path="res://asset/background1.jpg" type="Texture" id=7]
+
+[sub_resource type="DynamicFont" id=5]
+size = 28
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 5 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 5 )
+
+[node name="sadBean" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 512, 300 )
+scale = Vector2( 1.90596, 1.86025 )
+texture = ExtResource( 7 )
+
+[node name="sadBeanImg" type="Sprite" parent="."]
+position = Vector2( 513, 143 )
+scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+
+[node name="sadBeanStory" type="Label" parent="."]
+margin_left = 1.0
+margin_top = 215.0
+margin_right = 1022.0
+margin_bottom = 443.0
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 5 )
+text = "The bean is sad 
+
+because it is not popular 
+
+among children as a side dish.
+
+ So, the bean decide to go on an adventure 
+
+to become a candy 
+
+that is popular with children."
+align = 1
+
+[node name="Skip" type="Node2D" parent="."]
+position = Vector2( 810, 510 )
+
+[node name="SkipButton" type="TextureButton" parent="Skip"]
+margin_right = 192.0
+margin_bottom = 64.0
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 6 )
+texture_hover = ExtResource( 6 )
+
+[node name="skip" type="Label" parent="Skip"]
+margin_left = 1.0
+margin_top = 17.0
+margin_right = 192.0
+margin_bottom = 37.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "SKIP"
+align = 1
+
+[node name="bgMusic" parent="." instance=ExtResource( 1 )]
+
+[connection signal="pressed" from="Skip/SkipButton" to="." method="_on_SkipButton_pressed"]
