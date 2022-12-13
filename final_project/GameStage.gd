@@ -9,7 +9,7 @@ func _ready():
 		
 func _process(delta):
 
-	
+	#rotate the map to right
 	if Input.is_action_just_pressed("rotate_right") and enableKey:
 		enableKey = false
 		isRotate = true
@@ -22,7 +22,7 @@ func _process(delta):
 		yield(get_tree().create_timer(0.3), "timeout")
 		enableKey = true
 
-
+	#rotate the map to left
 	if Input.is_action_just_pressed("rotate_left") and enableKey:
 		enableKey = false
 		isRotate = true
@@ -35,7 +35,7 @@ func _process(delta):
 		yield(get_tree().create_timer(0.3), "timeout")
 		enableKey = true
 
-	
+	#quit to selecting stage scene(Stage.tscn) by esc key
 	if Input.is_action_just_pressed("esc") and enableKey:
 		at.attemps = 1
 		get_tree().change_scene("res://Stages.tscn")
