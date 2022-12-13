@@ -11,5 +11,5 @@ dest_files=[ "res://.import/interface-124464.mp3-3e5d673dca710c4119c797128126759
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
