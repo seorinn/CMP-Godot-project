@@ -22,9 +22,6 @@ JumpSound="*res://jumpSound.tscn"
 KilledSound="*res://killedSound.tscn"
 ClearSound="*res://clearSound.tscn"
 Attempts="*res://Attempts.gd"
-GlobalButton="*res://button.tscn"
-StageButton="*res://stageButton.tscn"
-YaySound="*res://yaySound.tscn"
 
 [gui]
 
