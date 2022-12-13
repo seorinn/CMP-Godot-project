@@ -7,4 +7,4 @@ func _ready():
 func _on_SkipButton_pressed():
 	if(GameData.effectSound == 1):
 		GlobalButton.play()
-	get_tree().change_scene("res://howToPlay.tscn")
+	get_tree().change_scene("res://Stages.tscn")
