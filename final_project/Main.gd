@@ -13,18 +13,24 @@ func _ready():
 	
    
 func _on_CreditButton_pressed():
-   GameData.bgPosition = $bgMusic.get_playback_position()
-   get_tree().change_scene("res://Credit.tscn")
+	if(GameData.effectSound == 1):
+		GlobalButton.play()
+	GameData.bgPosition = $bgMusic.get_playback_position()
+	get_tree().change_scene("res://Credit.tscn")
 
 
 func _on_RecordsButton_pressed():
-   GameData.bgPosition = $bgMusic.get_playback_position()
-   get_tree().change_scene("res://Records.tscn")
+	if(GameData.effectSound == 1):
+		GlobalButton.play()
+	GameData.bgPosition = $bgMusic.get_playback_position()
+	get_tree().change_scene("res://Records.tscn")
 
 
 func _on_PlayButton_pressed():
-   GameData.bgPosition = $bgMusic.get_playback_position()
-   get_tree().change_scene("res://sadBean.tscn")
+	if(GameData.effectSound == 1):
+		GlobalButton.play()
+	GameData.bgPosition = $bgMusic.get_playback_position()
+	get_tree().change_scene("res://sadBean.tscn")
 
 	
 func _on_bgmButton_pressed():
@@ -43,3 +49,4 @@ func _on_effectSoundButton_pressed():
 		$Sound/Node2D2/Sprite.visible = true
 	elif(GameData.effectSound == 1):
 		$Sound/Node2D2/Sprite.visible = false
+
