@@ -10,12 +10,13 @@ var gravity = 50
 func _physics_process(_delta):
 	velocity.x = 0
 	
+	#move to the right
 	if Input.is_action_pressed("ui_right"):
 		velocity.x = speed
 		$bean.play("walk")
 		$bean.flip_h = true
 		
-		
+	#move to the left
 	elif Input.is_action_pressed("ui_left"):
 		velocity.x = -speed
 		$bean.play("walk")
@@ -26,7 +27,8 @@ func _physics_process(_delta):
 	
 	if not is_on_floor():
 		$bean.play("jump")
-		
+	
+	#Apply gravity only when the map is not spinning (to stay in the air when it is spinning)
 	if !get_parent().isRotate:
 		velocity.y += gravity
 	
