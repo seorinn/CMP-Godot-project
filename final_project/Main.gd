@@ -1,5 +1,6 @@
 extends Node2D
 
+#play BGM only when musicPlaying is on
 func _ready():
 	if(GameData.musicPlaying == 1):
 		$bgMusic.play()
@@ -11,7 +12,8 @@ func _ready():
 	else:		
 		$Sound/Node2D2/Sprite.visible = true
 	
-   
+#sound for button clicked
+#memorize playback position for continueing music
 func _on_CreditButton_pressed():
 	if(GameData.effectSound == 1):
 		GlobalButton.play()
@@ -32,7 +34,7 @@ func _on_PlayButton_pressed():
 	GameData.bgPosition = $bgMusic.get_playback_position()
 	get_tree().change_scene("res://sadBean.tscn")
 
-	
+#set BGM on/off
 func _on_bgmButton_pressed():
 	GameData.musicPlaying *= -1
 	if(GameData.musicPlaying == -1):
@@ -42,7 +44,7 @@ func _on_bgmButton_pressed():
 		$Sound/Node2D/Sprite.visible = false
 		$bgMusic.play()
 
-
+#set effect sound on/off
 func _on_effectSoundButton_pressed():
 	GameData.effectSound *= -1
 	if(GameData.effectSound == -1):
