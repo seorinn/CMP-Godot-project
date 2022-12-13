@@ -7,7 +7,7 @@ onready var at = get_node("/root/Attempts")
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _ready():           # show your record for here
 	text = "Your record: "+str(at.attemps)+" attempts"
 
 

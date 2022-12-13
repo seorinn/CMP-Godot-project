@@ -3,11 +3,8 @@ onready var at = get_node("/root/Attempts")
 
 func _ready():
 	pass
-#	if at.records[0] == 50000:
-#		text = "-"
-#	else:
-#		text = str(at.records[0])
-func _physics_process(delta):
+#	
+func _physics_process(delta):          # set initial record for each stage
 	if get_parent().get_name()=="Stage1":
 		if at.records[0] == 50000:
 			text = "-"

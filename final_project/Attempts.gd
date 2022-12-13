@@ -1,6 +1,6 @@
 extends Label
-var attemps =1
-var records = [50000,50000,50000,50000,50000]
+var attemps =1             # for checking scores
+var records = [50000,50000,50000,50000,50000]   # initial records
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"

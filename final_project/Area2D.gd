@@ -40,18 +40,18 @@ func _on_Area_Tree_body_entered(body):          # colliding with tree
 	else:
 		return
 
-func _on_Area_Tree_body_exited(body):
-	return
-#	if body ==p:
-#		grow = false
+#func _on_Area_Tree_body_exited(body):
+#	return
+##	if body ==p:
+##		grow = false
 
 
-func _on_Timer_timeout():
+func _on_Timer_timeout():           # get rid of the tree
 	get_parent().queue_free()
 	
 
 
-func _on_Timer2_timeout():
+func _on_Timer2_timeout():         # bomb animation
 	
 	get_parent().get_node("burning").visible = false
 	get_parent().get_node("burning2").visible = false
@@ -62,7 +62,7 @@ func _on_Timer2_timeout():
 	$Timer.start()
 
 
-func _on_AnimationPlayer_animation_finished(anim_name):
+func _on_AnimationPlayer_animation_finished(anim_name): # when growing finished
 	if anim_name == "myAnimation":
 		$"../AnimationPlayer".stop()
 		grow = false

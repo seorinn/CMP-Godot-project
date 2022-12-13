@@ -7,8 +7,9 @@ func _on_sugar_body_entered(body):
 		GameData.clear = 1
 		GetCandySound.play()
 		yield(get_tree().create_timer(0.3), "timeout")	
-	
-	if get_parent().get_name() == "stage1" :
+		
+	# input record for each stage
+	if get_parent().get_name() == "stage1" : 
 		if at.attemps<=at.records[0]:
 			at.records[0] = at.attemps
 	if get_parent().get_name() == "stage2" :
