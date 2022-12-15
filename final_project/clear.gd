@@ -11,10 +11,12 @@ func _on_sugar_body_entered(body):
 
 
 func _on_NextButton_pressed():
-	at.attemps = 1
+	at.attemps = 1	
+	if(GameData.effectSound == 1):
+		GlobalButton.play()
+	#if all of the stages are cleared -> ending story scene
 	if(int(at.records[0]) + int(at.records[1]) + int(at.records[2]) + 
 		int(at.records[3]) + int(at.records[4]) < 50000):
-			YaySound.play()
-			get_tree().change_scene("res://beCandy.tscn") # clear all of stages
+			get_tree().change_scene("res://beCandy.tscn")
 	else:
-		get_tree().change_scene("res://Stages.tscn") # return stages if there are stages not cleared
+		get_tree().change_scene("res://Stages.tscn")
