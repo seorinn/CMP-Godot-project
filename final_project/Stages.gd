@@ -11,6 +11,7 @@ func _on_QuitButton_pressed():
 	get_tree().change_scene("res://Main.tscn")
 
 
+#Go to the selected stage
 func _on_Stage1Button_pressed():
 	if(GameData.effectSound == 1):
 		StageButton.play()
